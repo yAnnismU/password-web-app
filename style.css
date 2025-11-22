@@ -1,0 +1,131 @@
+body {
+    background: #0d0d0d;
+    color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 25px;
+    background: #1a1a1a;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#output {
+    margin-top: 15px;
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+/* Strength Meter */
+#meterContainer {
+    width: 100%;
+    height: 10px;
+    background: #333;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#meterBar {
+    height: 10px;
+    width: 0%;
+    background: red;
+    border-radius: 8px;
+    transition: width 0.5s ease, background 0.3s ease;
+}
+
+#strengthText {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Copy Button */
+#copyBtn {
+    width: 100%;
+    padding: 12px;
+    background: #008CBA;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#copyBtn:hover {
+    background: #0073a1;
+}
+/* Mobile Fix */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+}
+.options {
+    text-align: left;
+    margin: 15px 0;
+}
+.options label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+.sliderBox {
+    text-align: left;
+    margin-bottom: 15px;
+}
+.sliderBox input {
+    width: 100%;
+}

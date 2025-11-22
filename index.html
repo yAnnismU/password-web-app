@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Password Generator</title>
+
+    <!-- This line loads your CSS (THIS was missing!) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Password Generator</h1>
+
+        <input id="userInput" type="text" placeholder="Suggest part of a password...">
+
+        <!-- Options -->
+        <div class="options">
+            <label><input type="checkbox" id="useUpper" checked> Uppercase</label>
+            <label><input type="checkbox" id="useNumbers" checked> Numbers</label>
+            <label><input type="checkbox" id="useSymbols" checked> Symbols</label>
+        </div>
+
+        <!-- Length Slider -->
+        <div class="sliderBox">
+            <label>Password Length: <span id="lengthValue">12</span></label>
+            <input type="range" id="lengthSlider" min="8" max="30" value="12" oninput="updateLength()">
+        </div>
+
+        <button onclick="generatePassword()">Generate</button>
+
+        <!-- Strength Meter -->
+        <div id="meterContainer">
+            <div id="meterBar"></div>
+        </div>
+
+        <p id="strengthText"></p>
+
+        <button id="copyBtn" onclick="copyPassword()">Copy Password</button>
+
+        <p id="output"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
