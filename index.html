@@ -1,49 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> PassWord Generator</title>
 
-    <title>Password Generator</title>
-
-    <!-- This line loads your CSS (THIS was missing!) -->
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <main class="wrap">
+    <header class="top">
+      <div class="logo">⚡ YANNIS</div>
+      <div class="tag">Neon Password Generator</div>
+    </header>
 
-    <div class="container">
-        <h1>Password Generator</h1>
-
-        <input id="userInput" type="text" placeholder="Suggest part of a password...">
-
-        <!-- Options -->
-        <div class="options">
-            <label><input type="checkbox" id="useUpper" checked> Uppercase</label>
-            <label><input type="checkbox" id="useNumbers" checked> Numbers</label>
-            <label><input type="checkbox" id="useSymbols" checked> Symbols</label>
+    <section class="card">
+      <div class="row">
+        <label class="lbl">Your idea (optional)</label>
+        <div class="inputRow">
+          <input id="userInput" type="text" placeholder="e.g. FlySquad12345" autocomplete="off">
+          <button id="improveBtn" class="btn ghost">IMPROVE</button>
         </div>
 
-        <!-- Length Slider -->
-        <div class="sliderBox">
-            <label>Password Length: <span id="lengthValue">12</span></label>
-            <input type="range" id="lengthSlider" min="8" max="30" value="12" oninput="updateLength()">
+        <div class="controls">
+          <div class="opts">
+            <label><input id="useUpper" type="checkbox" checked> Uppercase</label>
+            <label><input id="useNumbers" type="checkbox" checked> Numbers</label>
+            <label><input id="useSymbols" type="checkbox" checked> Symbols</label>
+          </div>
+
+          <div class="sliderWrap">
+            <label>Length: <span id="lengthValue">14</span></label>
+            <input id="lengthSlider" type="range" min="8" max="32" value="14">
+          </div>
         </div>
 
-        <button onclick="generatePassword()">Generate</button>
-
-        <!-- Strength Meter -->
-        <div id="meterContainer">
-            <div id="meterBar"></div>
+        <div class="modes">
+          <label>Mode</label>
+          <select id="modeSelect">
+            <option value="normal">Normal</option>
+            <option value="ultra">Ultra-Secure</option>
+            <option value="human">Human-Friendly</option>
+            <option value="yannis">Yannis Style</option>
+          </select>
         </div>
 
-        <p id="strengthText"></p>
+        <div class="actions">
+          <button id="generateBtn" class="btn">GENERATE</button>
+          <button id="regenBtn" class="btn ghost">REGENERATE</button>
+        </div>
 
-        <button id="copyBtn" onclick="copyPassword()">Copy Password</button>
+        <div class="results">
+          <div class="result neon">
+            <div class="rHead">
+              <div>Improved Result</div>
+              <button data-target="improved" class="mini copy">COPY</button>
+            </div>
+            <div id="improvedOutput" class="output">—</div>
+          </div>
 
-        <p id="output"></p>
-    </div>
+          <div class="result dim">
+            <div class="rHead">
+              <div>Original / Idea</div>
+              <button data-target="original" class="mini copy">COPY</button>
+            </div>
+            <div id="originalOutput" class="output subtle">—</div>
+          </div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="strength">
+          <div class="sLabel" id="strengthText">Strength: —</div>
+          <div class="meter">
+            <div id="meterFill" class="fill"></div>
+          </div>
+          <ul class="checks">
+            <li id="chkLength">Length ≥ 8</li>
+            <li id="chkUpper">Uppercase</li>
+            <li id="chkNumber">Number</li>
+            <li id="chkSymbol">Symbol</li>
+          </ul>
+        </div>
+
+        <div class="history">
+          <div class="histHead">
+            <div>History</div>
+            <button id="clearHistory" class="mini ghost">CLEAR</button>
+          </div>
+          <ul id="historyList" class="historyList"></ul>
+        </div>
+
+      </div>
+
+      <footer class="foot"> This password is inspired by Fly Squad</footer>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
